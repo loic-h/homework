@@ -1,7 +1,7 @@
 require.config({
 	paths: {
 		"domReady": "lib/require/plugins/domReady",
-		"text": "lib/require/lib/text",
+		"text": "lib/require/plugins/text",
 		"json": "lib/require/plugins/json",
 		"async": "lib/require/plugins/async",
 		"propertyParser" : 'lib/require/plugins/propertyParser',
@@ -22,15 +22,11 @@ require.config({
 
 require([
 	'domReady',
-	'backbone',
-	// 'App'
+	'App'
 ], function (domReady, App) {
 	domReady(function() {
-		log(_);
-		log(Backbone);
-		log($);
-
-		// App.init();
+		
+		App.init();
 
 	});
 });
