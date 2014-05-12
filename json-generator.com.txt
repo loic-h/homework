@@ -1,0 +1,9 @@
+[
+    '{{repeat(5, 7)}}',
+    {
+        id: '{{index()}}',
+        picture: 'http://placehold.it/32x32',
+        title: '{{lorem(1)}}',
+        subtext: '{{lorem(1, "paragraphs")}}'
+    }
+]
