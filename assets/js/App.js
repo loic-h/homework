@@ -21,16 +21,10 @@ define([
 				articles: this.articles
 			});
 
-			var pathes = window.location.pathname.split('/');
-			pathes.shift();
+			router.on('go-list', this.goList.bind(this));
+			router.on('go-article', this.goArticle.bind(this));
 
-			if(pathes[0] != "") {
-				log('go to article');
-			}
-			else {
-				log('go to list');
-				this.showList();
-			}
+			Backbone.history.start({pushState: true});
 		},
 
 		fillArticles: function() {
@@ -39,13 +33,17 @@ define([
 
 		},
 
-		showList: function() {
-
+		goList: function() {
+log('goList');
 			this.current_view = new ListView({
 				articles: this.articles
 			});
 
 			this.main_view.content.append(this.current_view.el);
+		},
+
+		goArticle: function(id) {
+			log(id);
 		}
 
 	};

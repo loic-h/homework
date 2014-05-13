@@ -8,7 +8,8 @@ require.config({
 		"jquery": "lib/jquery/jquery-2.0.3.min",
 		"root": "../..",
 		"ist": "lib/ist",
-		"backbone": "lib/backbone-min",
+		// "backbone": "lib/backbone-min",
+		"backbone": "lib/backbone",
 		"underscore": "lib/underscore-min"
 	},
 	deps: [
