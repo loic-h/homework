@@ -18,9 +18,29 @@ a {
 }
 
 #container {
-
+	display: inline-block;
+	text-align: left;
+	padding: 2em;
+	width: 100%;
 }
 
+#content {
+	width: 100%;
+}
+
+ul#list {
+	width: 100%;
+}
+
+ul#list li {
+	width: 270px;
+	margin: 0 2em 2em 0;
+	vertical-align: top;
+}
+
+.item {
+	width: 270px;
+}
 
 @media screen and (max-width: 640px) {
 

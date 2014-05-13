@@ -419,7 +419,10 @@ if(typeof window.preloadImages === "undefined") {
 					var img = imgs[i];
 					enableEvents(img);
 					hide(img);
-					img.addEvent('load', onLoaded.bind(img));
+					if(img.complete)
+						onLoaded.call(img);
+					else
+						img.addEvent('load', onLoaded.bind(img));
 					img.src = img.src; // Bug ie 8
 				}   
 			}
@@ -585,18 +588,6 @@ if(typeof getScrollTop === "undefined") {
 
 		return function() {
 			return d.scrollTop;
-		}
-	})();
-}
-
-if(typeof setScrollTop === "undefined") {
-	var setScrollTop = (function() {
-		var b = document.body,
-			d = document.documentElement;
-		d = d.clientHeight ? d : b;
-
-		return function(top) {
-			d.scrollTop = top;
 		}
 	})();
 }

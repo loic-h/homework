@@ -10,7 +10,9 @@ require.config({
 		"ist": "lib/ist",
 		// "backbone": "lib/backbone-min",
 		"backbone": "lib/backbone",
-		"underscore": "lib/underscore-min"
+		"underscore": "lib/underscore-min",
+		"masonry": "lib/masonry.pkgd",
+		"isotope": "lib/isotope.pkgd.min"
 	},
 	deps: [
 		"lib/utils"

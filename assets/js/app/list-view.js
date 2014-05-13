@@ -1,8 +1,10 @@
 'use strict';
 define([
 	'backbone',
+	'masonry',
+	'isotope',
 	'app/thumb-view'
-], function(Backbone, ThumbView) {
+], function(Backbone, Masonry, Isotope, ThumbView) {
 
 	var ListView = Backbone.View.extend({
 
@@ -20,7 +22,15 @@ define([
 				});
 				this.$el.append(article_view.el);
 			}, this);
-			
+			setTimeout(function() { 
+				preloadImages(this.el, function() {
+					var msnry = new Masonry(this.el);
+				}.bind(this));
+			}.bind(this), 0)
+		},
+
+		render: function() {
+
 		}
 	});
 

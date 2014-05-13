@@ -3,11 +3,12 @@ define([
 	'backbone',
 	'app/router',
 	'ist!templates/thumb'
-], function(Backbone, router, article_template) {
+], function(Backbone, router, thumb_template) {
 
 	var ThumbView = Backbone.View.extend({
 
 		tagName: "li",
+		className: "item",
 
 		events: {
 			"click": "onClick"
@@ -17,7 +18,7 @@ define([
 
 		initialize: function(options) {
 			this.options = options;
-			this.$el.append(article_template.render(this.model.attributes));
+			this.$el.append(thumb_template.render(this.model.attributes));
 		},
 
 		onClick: function() {
@@ -25,7 +26,7 @@ define([
 			if(typeof id !== "string") {
 				id = id.toString();
 			}
-			router.navigate(id);
+			router.navigate(id, { trigger: true });
 		}
 	});
 

@@ -1,0 +1,4 @@
+img[src={{ picture }}][alt={{ title }}]
+h2 "{{ title }}"
+p "{{ subtext }}"
+a.back[href=] "Back"

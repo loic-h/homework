@@ -1,12 +1,13 @@
 'use strict';
 define([
 	'json!data.js',
+	'app/router',
 	'app/article-collection',
 	'app/article-model',
 	'app/main-view',
 	'app/list-view',
-	'app/router'
-], function(data, ArticleCollection, ArticleModel, MainView, ListView, router) {
+	'app/article-view'
+], function(data, router, ArticleCollection, ArticleModel, MainView, ListView, ArticleView) {
 	
 	var App = {
 
@@ -34,16 +35,32 @@ define([
 		},
 
 		goList: function() {
-log('goList');
-			this.current_view = new ListView({
+			log('App::goList');
+			var view = new ListView({
 				articles: this.articles
 			});
 
-			this.main_view.content.append(this.current_view.el);
+			this.fillContent(view);
 		},
 
 		goArticle: function(id) {
+			log("App::goArticle");
+
+			if(typeof id !== "number")
+				id = parseInt(id);
 			log(id);
+			var article = this.articles.findWhere({id: id});
+			log(article);
+			var view = new ArticleView({
+				model: article
+			});
+
+			this.fillContent(view);
+		},
+
+		fillContent: function(view) {
+			this.current_view = view;
+			this.main_view.content.html(view.el);
 		}
 
 	};

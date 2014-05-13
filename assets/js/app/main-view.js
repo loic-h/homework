@@ -8,9 +8,10 @@ define([
 
 		el: '#container',
 		content: null,
+		template: main_tpl.render(),
 
 		initialize: function() {
-			this.el.appendChild(main_tpl.render());
+			this.el.appendChild(this.template);
 
 			this.content = this.$el.find('#content');
 		}
