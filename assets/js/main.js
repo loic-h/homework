@@ -8,17 +8,19 @@ require.config({
 		"jquery": "lib/jquery/jquery-2.0.3.min",
 		"root": "../..",
 		"ist": "lib/ist",
-		// "backbone": "lib/backbone-min",
-		"backbone": "lib/backbone",
+		"backbone": "lib/backbone-min",
 		"underscore": "lib/underscore-min",
 		"masonry": "lib/masonry.pkgd",
-		"isotope": "lib/isotope.pkgd.min"
+		"isotope": "lib/isotope.pkgd.min",
+		"infinitescroll": "lib/jquery.infinitescroll"
 	},
 	deps: [
 		"lib/utils"
 	],
 	shim: {
-		
+		"infinitescroll": {
+			deps: ["jquery"]
+		}
 	},
 	urlArgs: "bust=" + (new Date()).getTime()
 });

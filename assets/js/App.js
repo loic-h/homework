@@ -48,9 +48,7 @@ define([
 
 			if(typeof id !== "number")
 				id = parseInt(id);
-			log(id);
 			var article = this.articles.findWhere({id: id});
-			log(article);
 			var view = new ArticleView({
 				model: article
 			});
